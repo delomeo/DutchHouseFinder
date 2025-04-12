@@ -1,6 +1,6 @@
 import argparse
 import datetime
-from homeharvest import scrape_property
+from DutchHouseScraper import scrape_property
 
 
 def main():
