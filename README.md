@@ -1,14 +1,21 @@
-<img src="./logo.jpeg" width="400">
+<img src="./assets/logo.jpeg" width="400">
 
-**Dutch House Finder (DHF)** is a real estate scraping library that extracts and formats data in the style of MLS listings.
+**Dutch House Finder (DHF)** is a real estate scraping library that extracts and formats data from rental listings in the Netherlands. 
 
 ## DHF Features
 
-- **Source**: Fetches properties directly from **Realtor.com**.
-- **Data Format**: Structures data to resemble MLS listings.
-- **Export Flexibility**: Options to save as either CSV or Excel.
+- **Source(s)**: Fetches properties directly from a list of niche rental listings to increase your chances to land on your next house.
+- **Data Format**: Structures data for easy access and more control over managing your application process.
+- **Export Flexibility**: Options to save house ads as records stored either in a CSV or Excel file.
+- **Instant Notifications**: Receive instant notifications via WhatsApp and/or email to beat everybody on time and increase chances to receive invitations for viewings.
+- **Customizable**: Add your own custom filters to the scraper to suit your needs.
+- **Multi-threading**: Scrape multiple listings at once to save time and increase efficiency.
+- **Proxy Support**: Use proxies to avoid IP bans and ensure smooth scraping.
+- **User-Agent Rotation**: Automatically rotates user agents to mimic different browsers and avoid detection.
+- **Error Handling**: Built-in error handling to manage exceptions and ensure smooth operation.
+- **Documentation**: Comprehensive documentation to help you get started quickly and easily.
 
-![homeharvest](https://github.com/ZacharyHampton/HomeHarvest/assets/78247585/b3d5d727-e67b-4a9f-85d8-1e65fd18620a)
+<!-- THIS IS COOL KEEP IT FOR REFERENCING EXT ASSETS ![homeharvest](https://github.com/ZacharyHampton/HomeHarvest/assets/78247585/b3d5d727-e67b-4a9f-85d8-1e65fd18620a) --> 
 
 ## Installation
 
@@ -27,7 +34,7 @@ from datetime import datetime
 
 # Generate filename based on current timestamp
 current_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-filename = f"HomeHarvest_{current_timestamp}.csv"
+filename = f"DutchHouseFinder_{current_timestamp}.csv"
 
 properties = scrape_property(
   location="Rotterdam, Zuid Holland",
