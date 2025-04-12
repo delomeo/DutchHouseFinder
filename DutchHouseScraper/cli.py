@@ -4,6 +4,9 @@ from homeharvest import scrape_property
 
 
 def main():
+    '''
+    Main function to handle command line arguments and initiate the scraping process.
+    '''
     parser = argparse.ArgumentParser(description="Dutch House Scraper CLI - Developed by delomeo (debartolomeo.francesco@gmail.com)")
     parser.add_argument("location", type=str, help="Location to scrape (e.g., 'Amsterdam', 'Utrecht', 'Rotterdam')")
 
