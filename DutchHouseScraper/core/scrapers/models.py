@@ -5,37 +5,12 @@ from typing import Optional
 
 
 class SiteName(Enum):
-    """
-    Enumerates supported site names used in the scraping library.
-
-    This enum is utilized to define the various sites from which data can be scraped.
-    It provides a utility method, `get_by_value`, allowing lookup of a specific member using its value.
-
-    Raises:
-        ValueError: If no matching SiteName is found for the provided value.
-    
-    Example:
-        >>> SiteName.get_by_value("PARARIUS")
-        <SiteName.PARARIUS: 'PARARIUS'>
-        >>> SiteName.get_by_value("UNKNOWN_SITE")
-        Traceback (most recent call last):
-            ...
-        ValueError: UNKNOWN_SITE not found in <enum 'SiteName'>
-    """
-    AMSTEL_HOUSING = "AMSTEL_HOUSING"
+    ZILLOW = "zillow"
+    REDFIN = "redfin"
+    REALTOR = "realtor.com"
 
     @classmethod
     def get_by_value(cls, value):
-        """
-        Retrieves the SiteName member corresponding to the provided value.
-        Args:
-            cls (SiteName): The SiteName class itself.
-            value (str): The value of the SiteName member to retrieve.
-        Returns:
-            SiteName: The SiteName member corresponding to the provided value.
-        Raises:
-            ValueError: If no matching SiteName is found for the provided value.
-        """
         for item in cls:
             if item.value == value:
                 return item
@@ -43,11 +18,6 @@ class SiteName(Enum):
 
 
 class SearchPropertyType(Enum):
-    """
-    Enumerates the types of properties available for search.
-    This enum is used to categorize properties based on their type.
-    """
-    
     SINGLE_FAMILY = "single_family"
     CONDOS = "condos"
     CONDO_TOWNHOME_ROWHOME_COOP = "condo_townhome_rowhome_coop"
@@ -61,10 +31,6 @@ class SearchPropertyType(Enum):
 
 
 class ListingType(Enum):
-    """
-    Enumerates the types of listings available.
-    This enum is used to categorize properties based on their availability and status.
-    """
     FOR_SALE = "FOR_SALE"
     FOR_RENT = "FOR_RENT"
     PENDING = "PENDING"

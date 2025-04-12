@@ -20,8 +20,8 @@ from tenacity import (
     stop_after_attempt,
 )
 
-from DutchHouseFinder.core.scrapers import Scraper
-from DutchHouseFinder.core.scrapers.models import (
+from .. import Scraper
+from ..models import (
     Property,
     Address,
     ListingType,
@@ -33,26 +33,10 @@ from DutchHouseFinder.core.scrapers.models import (
     Advertisers,
     Office,
 )
-from DutchHouseFinder.core.scrapers.housescraper.queries import (
-    GENERAL_RESULTS_QUERY, SEARCH_HOMES_DATA, HOMES_DATA
-)
+from .queries import GENERAL_RESULTS_QUERY, SEARCH_HOMES_DATA, HOMES_DATA
 
 
-class CustomScraper(Scraper):
-
-    """
-    This class implements the scraper for custom websites.
-    It inherits from the base Scraper class and implements the methods required to scrape data from the website.
-    It uses the requests library to make HTTP requests and the json library to parse the responses.
-    It also uses the tenacity library to implement retry logic for handling transient errors.   
-    Args:
-        scraper_input (ScraperInput): The input parameters for the scraper, including location, listing type, and other options.
-        timeout (Optional[int]): The timeout for HTTP requests in seconds. Defaults to 30 seconds.
-        proxy (Optional[str]): The proxy to use for HTTP requests. Defaults to None.
-    Returns:
-        None
-    """
-    # Constants
+class RealtorScraper(Scraper):
     SEARCH_GQL_URL = "https://www.realtor.com/api/v1/rdc_search_srp?client_id=rdc-search-new-communities&schema=vesta"
     PROPERTY_URL = "https://www.realtor.com/realestateandhomes-detail/"
     PROPERTY_GQL = "https://graph.realtor.com/graphql"
@@ -60,7 +44,8 @@ class CustomScraper(Scraper):
     NUM_PROPERTY_WORKERS = 20
     DEFAULT_PAGE_SIZE = 200
 
-    # No need for an __init__ method as it only delegates to the parent class
+    def __init__(self, scraper_input):
+        super().__init__(scraper_input)
 
     def handle_location(self):
         params = {
