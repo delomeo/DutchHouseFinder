@@ -1,4 +1,4 @@
-from DutchHouseScraper import scrape_property
+from DutchHouseFinder import scrape_property
 
 
 def test_realtor_pending_or_contingent():

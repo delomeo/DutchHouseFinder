@@ -1,6 +1,6 @@
 import argparse
 import datetime
-from DutchHouseScraper import scrape_property
+from DutchHouseFinder import scrape_property
 
 
 def main():

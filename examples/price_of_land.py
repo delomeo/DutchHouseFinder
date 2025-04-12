@@ -5,7 +5,7 @@ It adds two columns to the data: 'lot_acres' and 'ppa' (price per acre) for user
 
 import os
 import pandas as pd
-from DutchHouseScraper import scrape_property
+from DutchHouseFinder import scrape_property
 
 
 def get_property_details(zip: str, listing_type):
