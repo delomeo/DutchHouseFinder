@@ -1,21 +1,19 @@
-<img src="https://github.com/ZacharyHampton/HomeHarvest/assets/78247585/d1a2bf8b-09f5-4c57-b33a-0ada8a34f12d" width="400">
+<img src="./logo.jpeg" width="400">
 
-**HomeHarvest** is a real estate scraping library that extracts and formats data in the style of MLS listings.
+**Dutch House Finder (DHF)** is a real estate scraping library that extracts and formats data in the style of MLS listings.
 
-## HomeHarvest Features
+## DHF Features
 
 - **Source**: Fetches properties directly from **Realtor.com**.
 - **Data Format**: Structures data to resemble MLS listings.
 - **Export Flexibility**: Options to save as either CSV or Excel.
-
-[Video Guide for HomeHarvest](https://youtu.be/J1qgNPgmSLI) - _updated for release v0.3.4_
 
 ![homeharvest](https://github.com/ZacharyHampton/HomeHarvest/assets/78247585/b3d5d727-e67b-4a9f-85d8-1e65fd18620a)
 
 ## Installation
 
 ```bash
-pip install -U homeharvest
+pip install -U dutchhousefinder
 ```
   _Python version >= [3.9](https://www.python.org/downloads/release/python-3100/) required_
 
@@ -24,7 +22,7 @@ pip install -U homeharvest
 ### Python
 
 ```py
-from homeharvest import scrape_property
+from DutchHouseFinder import scrape_property
 from datetime import datetime
 
 # Generate filename based on current timestamp
@@ -32,13 +30,13 @@ current_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 filename = f"HomeHarvest_{current_timestamp}.csv"
 
 properties = scrape_property(
-  location="San Diego, CA",
+  location="Rotterdam, Zuid Holland",
   listing_type="sold",  # or (for_sale, for_rent, pending)
   past_days=30,  # sold in last 30 days - listed in last 30 days if (for_sale, for_rent)
 
   # property_type=['single_family','multi_family'],
-  # date_from="2023-05-01", # alternative to past_days
-  # date_to="2023-05-28",
+  # date_from="2025-05-01", # alternative to past_days
+  # date_to="2025-05-28",
   # foreclosure=True
   # mls_only=True,  # only fetch MLS listings
 )
@@ -84,8 +82,8 @@ Optional
     - 'land'
     - 'mobile'
 
-├── radius (decimal): Radius in miles to find comparable properties based on individual addresses.
-│    Example: 5.5 (fetches properties within a 5.5-mile radius if location is set to a specific address; otherwise, ignored)
+├── radius (decimal): Radius in kilometers to find comparable properties based on individual addresses.
+│    Example: 5.5 (fetches properties within a 5.5 km radius if location is set to a specific address; otherwise, ignored)
 │
 ├── past_days (integer): Number of past days to filter properties. Utilizes 'last_sold_date' for 'sold' listing types, and 'list_date' for others (for_rent, for_sale).
 │    Example: 30 (fetches properties listed/sold in the last 30 days)
